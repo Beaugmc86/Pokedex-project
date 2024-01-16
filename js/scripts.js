@@ -1,4 +1,4 @@
-//Create variable for pokemon array.
+//Create variable for pokemon repository.
 let pokemonList = [
   { 
     name: 'Bulbasaur', 
@@ -15,15 +15,44 @@ let pokemonList = [
     type: 'water', 
     height: 0.5
   },
+  { 
+    name: 'Mr. Mime', 
+    type: ['psychic', 'fairy'], 
+    height: 1.3 
+  },
+  { 
+    name: 'Jynx', 
+    type: ['psychic', 'ice'], 
+    height: 1.4 
+  },
+  { 
+    name: 'Snorlax', 
+    type: 'normal', 
+    height: 2.1
+  },
 ];
 
 //Loop to iterate over each item in pokemonList
-for (let i = 0; i < pokemonList.length; i++){
-  document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ' )');
-  if (pokemonList[i].height < 0.7){
-   document.write('<br>')
-  }else {
+// NOTE this is the old code to be replaced in Task 1.5
+// function printArrayDetails(list){
+//   for (let i = 0; i < list.length; i++){
+//     document.write('<p>' + list[i].name + ' (height: ' + list[i].height + ' )');
+//     if (list[i].height < 1.0){
+//     }else {
+//       document.write(' - Wow, that\'s big!');
+//     }
+//   }
+// }
+
+// printArrayDetails(pokemonList); // executes the function using ‘pokemonList‘ as its input
+
+// printArrayDetails(pokemonList2); // executes the function using ‘pokemonList2‘ as its input
+
+//forEach Loop to iterate over pokemonList in task 1.5
+pokemonList.forEach(function(pokemon) {
+  document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ' )' )
+  if (pokemon.height > 1.0){
     document.write(' - Wow, that\'s big!');
-    document.write('<br>')
+    }
   }
-}
+)
