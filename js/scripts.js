@@ -51,7 +51,7 @@ let pokemonRepository = (function () {
 })()
 
 //forEach Loop to iterate over pokemonList in task 1.5
-//Updated from 'pokemonList' to 'pokemonRepository.getAll()' to call function withing IIFE/
+//Updated from 'pokemonList' to 'pokemonRepository.getAll()' to call function within IIFE.
 pokemonRepository.getAll().forEach(function(pokemon) {
   document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ' )' )
   }
