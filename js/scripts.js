@@ -2,38 +2,8 @@
 // Wrap list array in an IIFE to avoid accidentally accessing global state
 let pokemonRepository = (function () {
 
-  let pokemonList = [
-    { 
-      name: 'Bulbasaur', 
-      type: ['grass', 'poison'], 
-      height: 0.7 
-    },
-    { 
-      name: 'Charmander', 
-      type: 'fire', 
-      height: 0.6 
-    },
-    { 
-      name: 'Squirtle', 
-      type: 'water', 
-      height: 0.5
-    },
-    { 
-      name: 'Mr. Mime', 
-      type: ['psychic', 'fairy'], 
-      height: 1.3 
-    },
-    { 
-      name: 'Jynx', 
-      type: ['psychic', 'ice'], 
-      height: 1.4 
-    },
-    { 
-      name: 'Snorlax', 
-      type: 'normal', 
-      height: 2.1
-    },
-  ]
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   //Return array of pokemon
   function getAll () {
@@ -61,25 +31,57 @@ let pokemonRepository = (function () {
     }
   
   function showDetails(pokemon) {
-    console.log(pokemon)
+    loadDetails(pokemon).then(function() {
+      console.log(pokemon);
+    });
+  }
+
+  //Load list of pokemon from API
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
+  
+  //Load details of pokemon from API
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      // Now we add the details to the item
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
   }
 
   return {
     getAll: getAll,
     add: add,
     addListItem: addListItem,
-  }
+    loadList: loadList,
+    loadDetails: loadDetails
+  };
 })()
 
-//Add pikachu to array of pokemon
-pokemonRepository.add({ name: 'Pikachu', height: 0.3, type: '[electric]'});
+pokemonRepository.loadList().then(function() {
+  // Now the data is loaded!
 
-console.log(pokemonRepository.getAll());
-
-//forEach Loop to iterate over pokemonList in task 1.5
 //Updated from 'pokemonList' to 'pokemonRepository.getAll()' to call function within IIFE.
-pokemonRepository.getAll().forEach(function(pokemon) {
+pokemonRepository.getAll().forEach(function(pokemon){
   pokemonRepository.addListItem(pokemon);
-
-  }
-);
+});
+});
