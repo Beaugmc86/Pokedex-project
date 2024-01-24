@@ -52,19 +52,21 @@ let pokemonRepository = (function () {
     modalTitle.empty();
     modalBody.empty();
 
+    // Create name element
     let nameElement = $('<h2>' + pokemon.name + '</h2>');
-
+    // Create image element
     let imageElementFront = $('<img class="modal-img" style="width:50%">');
     imageElementFront.attr('src', pokemon.imageUrlFront);
-
+    // Create height element
     let heightElement = $('<p>' + 'height : ' + pokemon.height + '</p>');
-
+    // Create weight element
     let weightElement = $('<p>' + 'weight : ' + pokemon.weight + '</p>');
-
+    // Create types element
     let typesElement = $('<p>' + 'types : ' + pokemon.types + '</p>');
-
+    // Create abilities element
     let abilitiesElement = $('<p>' + 'abilities : ' + pokemon.abilities + '</p>');
 
+    // Append elements
     modalTitle.append(nameElement);
     modalBody.append(imageElementFront);
     modalBody.append(heightElement);
