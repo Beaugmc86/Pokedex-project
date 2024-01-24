@@ -1,4 +1,18 @@
-html, 
+.navbar {
+  justify-content: unset;
+  background-color: rgb(117, 148, 117);
+}
+
+.navbar__item {
+  width: 75px;
+  padding-right: 10px ;
+}
+
+.page-container {
+  margin-top: 100px;
+}
+
+/* html, 
 body {
   font-family: Arial, sans-serif;
   background-color: rgb(147, 194, 147);
@@ -12,13 +26,8 @@ body {
   padding: 20px
 }
 
-.page-header__item {
-  width: 75px;
-  padding-right: 10px ;
-}
-
-.button-class {
-  /* border: solid; */
+.button-class { */
+  /* border: solid;
   width: 100px;
   height: 50px;
   margin: 5px;
@@ -46,16 +55,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5); */
   
   /* to show it above other content */
-  z-index: 999; 
+  /* z-index: 999;  */
   
   /* to allow scrolling if the screen is not high enough*/
-  overflow: auto; 
+  /* overflow: auto;  */
   
   /* this is used to center the modal */
-  display: grid;
+  /* display: grid;
   text-align: center;
 }
 
@@ -85,4 +94,4 @@ body {
 
 .modal p {
   margin-bottom: 0;
-}
+} */
