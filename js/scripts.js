@@ -17,12 +17,17 @@ let pokemonRepository = (function () {
   //Create pokemon button list
   function addListItem(pokemon) {
     let repository = document.querySelector('.pokemon-list');
-    let listpokemon = document.createElement('listItemPokemon');
+    let listPokemon = document.createElement('listItemPokemon');
     let button = document.createElement('button');
+
+    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-target', '#bootstrapModal')
     button.innerText = pokemon.name;
-    button.classList.add('button-class');
-    listpokemon.appendChild(button);
-    repository.appendChild(listpokemon);
+
+    button.classList.add('btn-primary');
+    listPokemon.classList.add('list-group-item');
+    listPokemon.appendChild(button);
+    repository.appendChild(listPokemon);
 
     //add click function to button
     button.addEventListener('click', function() {
