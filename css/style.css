@@ -3,7 +3,6 @@
 }
 
 .navbar {
-  justify-content: unset;
   background-color: rgb(117, 148, 117);
 }
 
@@ -16,21 +15,25 @@
   margin-top: 100px;
 }
 
-.list-group-item:first-child {
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-}
-
-.list-group-item:last-child {
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
-
 .list-group-item {
+  border: none;
   text-align: center;
+  padding: .25rem .75rem;
+  background-color: rgb(147, 194, 147);
+  
+}
+
+.btn:not(:disabled) {
+  text-transform: capitalize;
+  background-color: rgb(243, 241, 241);
   border: 2px solid black;
   border-radius: 30px;
-  padding: .25rem .75rem;
-  margin: 5px;
-  background-color: rgb(243, 241, 241);
+  
+}
+.btn:focus {
+  box-shadow: none;
+}
+
+.modal-header {
+  text-transform: capitalize;
 }
