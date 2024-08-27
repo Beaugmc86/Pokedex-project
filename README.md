@@ -5,7 +5,7 @@ Project to create simple pokedex app using HTML, CSS, Javascript, and Bootstrap.
 
 **How to get the project running:**
 
-The App is built with HTML, JS, Jquery, CSS and uses Bootstrap Components
+The App is built with HTML, JavaScript, jQuery, CSS and uses Bootstrap Components
 
 **Project dependencies:**
 
